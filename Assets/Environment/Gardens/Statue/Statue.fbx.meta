@@ -65,10 +65,12 @@ ModelImporter:
     2300002: Hair
     2300004: Skin
     2300006: stick
+    2300008: //RootNode
     3300000: Dress
     3300002: Hair
     3300004: Skin
     3300006: stick
+    3300008: //RootNode
     4300000: stick
     4300002: Dress
     4300004: Hair
