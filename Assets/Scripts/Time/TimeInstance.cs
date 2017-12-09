@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class TimeInstance : MonoBehaviour {
 
     public TimeManager manager;
@@ -13,6 +14,9 @@ public class TimeInstance : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        manager.Tick();
+        if(Application.isPlaying)
+            manager.Tick();
+        else
+            manager.ResetLight();
     }
 }

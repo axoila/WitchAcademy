@@ -49,6 +49,10 @@ public class TimeManager : ScriptableObject {
         }
     }
 
+    public void ResetLight(){
+        Shader.SetGlobalColor("_AmbientColor", Color.white);
+    }
+
 	public void newDay(){
         dayStart = Time.time;
 		update.Invoke(this);

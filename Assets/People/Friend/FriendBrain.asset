@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3389e8e0ff4d69145b41e3d30e6c5ae2, type: 3}
-  m_Name: Friend
+  m_Name: FriendBrain
   m_EditorClassIdentifier: 
   speed: 5
   target: {fileID: 11400000, guid: 9f679ac1030d2e3448e528181ba68ddb, type: 2}

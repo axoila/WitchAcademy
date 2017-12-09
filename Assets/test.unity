@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 112791952}
   - component: {fileID: 112791951}
   m_Layer: 0
-  m_Name: Ben
+  m_Name: Bed_left
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 112791950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -8}
+  m_LocalPosition: {x: 1, y: 1, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 855534785}
@@ -296,7 +296,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168823569}
-  m_LocalRotation: {x: 0.4303683, y: -0.00000019356835, z: 0.0000002328492, w: 0.9026534}
+  m_LocalRotation: {x: 0.4303683, y: -0.00000019356852, z: 0.00000023284919, w: 0.9026534}
   m_LocalPosition: {x: 8.936, y: 15, z: -59.397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -412,7 +412,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 288452540}
-  m_LocalRotation: {x: 0.4303683, y: -0.00000019356835, z: 0.0000002328492, w: 0.9026534}
+  m_LocalRotation: {x: 0.4303683, y: -0.00000019356852, z: 0.00000023284919, w: 0.9026534}
   m_LocalPosition: {x: 8.936, y: 15, z: -59.397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -441,12 +441,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 296724501}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 297225265}
-  m_Father: {fileID: 414675082}
+  m_Father: {fileID: 979572891}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &297225265 stripped
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 337178599}
   - component: {fileID: 337178600}
   m_Layer: 0
-  m_Name: Ben
+  m_Name: Bed_right
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -553,36 +553,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4032262614809996, guid: 66054e0457f8c5d438dfd00889cca47c,
     type: 2}
   m_PrefabInternal: {fileID: 390775363}
---- !u!1 &414675081
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 414675082}
-  m_Layer: 0
-  m_Name: Buildings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!4 &414675082
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414675081}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1906735551}
-  - {fileID: 296724502}
-  m_Father: {fileID: 979572891}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &443048131
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +657,7 @@ GameObject:
   - component: {fileID: 475184795}
   - component: {fileID: 475184796}
   m_Layer: 0
-  m_Name: Ben
+  m_Name: Bed_left
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1013,7 +983,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 414675082}
+  - {fileID: 1906735551}
+  - {fileID: 296724502}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1082,15 +1053,15 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 3
   m_HorizontalDamping: 0
-  m_VerticalDamping: 0
+  m_VerticalDamping: 2
   m_ScreenX: 0.5
   m_ScreenY: 0.6
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.1
+  m_SoftZoneHeight: 0.1
   m_BiasX: 0
-  m_BiasY: -0.09999998
+  m_BiasY: 0
 --- !u!114 &1181945626
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1143,7 +1114,7 @@ GameObject:
   - component: {fileID: 1277227541}
   - component: {fileID: 1277227542}
   m_Layer: 0
-  m_Name: Ben
+  m_Name: Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1365,8 +1336,8 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 100004, guid: 7091a35e15251e14d8ffbdb88aab672a, type: 3}
   m_PrefabInternal: {fileID: 1687075149}
---- !u!65 &1659306157
-BoxCollider:
+--- !u!64 &1659306157
+MeshCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -1375,8 +1346,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 100, y: 100, z: 2}
-  m_Center: {x: 0, y: 0, z: -1}
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 7091a35e15251e14d8ffbdb88aab672a, type: 3}
 --- !u!1001 &1687075149
 Prefab:
   m_ObjectHideFlags: 0
@@ -1545,7 +1518,7 @@ GameObject:
   - component: {fileID: 1704900443}
   - component: {fileID: 1704900444}
   m_Layer: 0
-  m_Name: Ben
+  m_Name: Bed_right
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1558,7 +1531,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1704900442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 0.5, z: -8}
+  m_LocalPosition: {x: -7, y: 1, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 855534785}
@@ -1586,7 +1559,7 @@ GameObject:
   - component: {fileID: 1725627759}
   - component: {fileID: 1725627760}
   m_Layer: 0
-  m_Name: Ben
+  m_Name: Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1749,14 +1722,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1906735550}
-  m_LocalRotation: {x: 0, y: 0.95105654, z: 0, w: 0.309017}
+  m_LocalRotation: {x: -0, y: 0.95105654, z: -0, w: 0.309017}
   m_LocalPosition: {x: 23.77, y: 0, z: -32.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1798615101}
   - {fileID: 1251649755}
   - {fileID: 1565208458}
-  m_Father: {fileID: 414675082}
+  m_Father: {fileID: 979572891}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 144, z: 0}
 --- !u!1001 &2083108407
@@ -1768,7 +1741,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4032262614809996, guid: 66054e0457f8c5d438dfd00889cca47c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 4032262614809996, guid: 66054e0457f8c5d438dfd00889cca47c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1796,7 +1769,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4032262614809996, guid: 66054e0457f8c5d438dfd00889cca47c, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4032262614809996, guid: 66054e0457f8c5d438dfd00889cca47c, type: 2}
       propertyPath: m_LocalScale.x
