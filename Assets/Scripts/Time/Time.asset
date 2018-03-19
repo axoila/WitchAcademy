@@ -43,4 +43,6 @@ MonoBehaviour:
   dayLength: 10
   timeBetweenUpdates: 5
   dayIndex: 0
-  currentSky: {r: 1, g: 0.81568635, b: 0.57254905, a: 1}
+  currentSky: {r: 1, g: 0.96437514, b: 0.76854897, a: 1}
+  currentTime: 0
+  currentDay: 0

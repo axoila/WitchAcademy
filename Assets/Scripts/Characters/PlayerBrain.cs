@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerBrain : CharacterBrain {
 
     public float speed = 10;
-    public float gravity = -10;
 
     public override Vector3 position { 
         get{
@@ -14,12 +13,10 @@ public class PlayerBrain : CharacterBrain {
         } 
     }
 
-    float fallSpeed = 0;
     Transform trans;
 
     public override void Setup(Character chara){
-        chara.agent.enabled = false;
-        chara.charCon.enabled = true;
+        chara.agent.enabled = true;
         chara.obstacle.enabled = true;
 
         trans = chara.trans;
@@ -30,10 +27,6 @@ public class PlayerBrain : CharacterBrain {
     }
 
 	void Move(Character chara){
-        //falling
-		if (chara.charCon.isGrounded)
-            fallSpeed = 0;
-        fallSpeed += gravity * Time.deltaTime;
 
 		//input
 		Vector3 velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -46,9 +39,11 @@ public class PlayerBrain : CharacterBrain {
 		
 		//convert from input to speed
 		velocity *= speed;
-        velocity.y = fallSpeed;
+
+        if(Input.GetKey(KeyCode.LeftShift))
+            velocity *= 10;
 
 		//move
-		chara.charCon.Move(velocity * Time.deltaTime);
+		chara.agent.Move(velocity * Time.deltaTime);
 	}
 }

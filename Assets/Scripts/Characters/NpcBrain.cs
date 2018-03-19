@@ -13,7 +13,6 @@ public class NpcBrain : CharacterBrain
     public CharacterBrain target;
 
 
-
 	//public fields
 	public override Vector3 position
     {
@@ -29,7 +28,6 @@ public class NpcBrain : CharacterBrain
     public override void Setup(Character chara)
     {
         chara.agent.enabled = true;
-        chara.charCon.enabled = false;
         chara.obstacle.enabled = false;
 
         trans = chara.trans;

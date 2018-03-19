@@ -7,7 +7,6 @@ public class Character : MonoBehaviour {
 
     public CharacterBrain brain;
 
-    [HideInInspector] public CharacterController charCon;
     [HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public NavMeshObstacle obstacle;
     [HideInInspector] public Transform trans;
@@ -15,7 +14,6 @@ public class Character : MonoBehaviour {
     private int brainHash;
 
     void Awake(){
-        charCon = GetComponent<CharacterController>();
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
         trans = transform;

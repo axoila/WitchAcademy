@@ -14,7 +14,9 @@ public class TimeManager : ScriptableObject {
 
     [Header("Variables")]
     public int dayIndex;
-    public Color currentSky;
+    //public Color currentSky;
+    public float currentTime;
+    public Day currentDay;
 
     public TimeUpdate update = new TimeUpdate();
 
@@ -24,13 +26,6 @@ public class TimeManager : ScriptableObject {
         }
 	}
 
-	public float time{
-		get{
-            return Time.time - dayStart;
-        }
-	}
-
-    private float dayStart;
     private float lastTimeUpdate;
 
 	/*void OnEnable(){
@@ -38,27 +33,44 @@ public class TimeManager : ScriptableObject {
 	}*/
 
     public void Tick(){
-        Shader.SetGlobalColor("_AmbientColor", ambientLight.Evaluate(time/dayLength));
-        currentSky = ambientLight.Evaluate(time / dayLength);
+        currentTime += Time.deltaTime;
 
-		if(lastTimeUpdate + timeBetweenUpdates <= time){
-            Debug.Log(lastTimeUpdate + " | " + time);
-            if(update != null)
-                update.Invoke(this);
-            lastTimeUpdate = time;//Mathf.Floor(time / timeBetweenUpdates) * timeBetweenUpdates;
+        if(currentTime >= dayLength){
+            StartNewDay();
         }
+
+		if(lastTimeUpdate + timeBetweenUpdates <= currentTime){
+            UpdateTime();
+        }
+
+        //UpdateSky();
     }
 
     public void ResetLight(){
         Shader.SetGlobalColor("_AmbientColor", Color.white);
     }
 
-	public void newDay(){
-        dayStart = Time.time;
+	public void StartNewDay(){
+        currentTime = 0;
+        dayIndex++;
+        lastTimeUpdate = 0;
 		update.Invoke(this);
+        currentDay = day;
     }
 
+    public void UpdateTime(){
+        Debug.Log(lastTimeUpdate + " | " + currentTime);
+        if(update != null)
+            update.Invoke(this);
+        while(lastTimeUpdate + timeBetweenUpdates <= currentTime){
+            lastTimeUpdate += timeBetweenUpdates;
+        }
+    }
 
+    /*public void UpdateSky(){
+        Shader.SetGlobalColor("_AmbientColor", ambientLight.Evaluate(currentTime/dayLength));
+        currentSky = ambientLight.Evaluate(currentTime / dayLength);
+    }*/
 }
 
 public enum Day{

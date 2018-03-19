@@ -1,4 +1,6 @@
-﻿Shader "Palette"
+﻿// Upgrade NOTE: upgraded instancing buffer 'MyProperties' to new syntax.
+
+Shader "Palette"
 {
     Properties
     {
@@ -39,9 +41,10 @@
 			float2 _PaletteSize;
 			uniform float4 _AmbientColor;
 
-            UNITY_INSTANCING_CBUFFER_START(MyProperties)
+            UNITY_INSTANCING_BUFFER_START(MyProperties)
                 UNITY_DEFINE_INSTANCED_PROP(int2, _Offset)
-            UNITY_INSTANCING_CBUFFER_END
+#define _Offset_arr MyProperties
+            UNITY_INSTANCING_BUFFER_END(MyProperties)
            
             v2f vert(appdata v)
             {
@@ -52,7 +55,7 @@
 
                 o.vertex = UnityObjectToClipPos(v.vertex);
 
-				float2 offset = UNITY_ACCESS_INSTANCED_PROP(_Offset) / _PaletteSize;
+				float2 offset = UNITY_ACCESS_INSTANCED_PROP(_Offset_arr, _Offset) / _PaletteSize;
 				o.uv = v.uv + offset;
                 return o;
             }
