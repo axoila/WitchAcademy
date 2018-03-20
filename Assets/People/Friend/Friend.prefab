@@ -171,8 +171,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4405412290008920}
-  - component: {fileID: 114793170380320198}
-  - component: {fileID: 143362735392308490}
+  - component: {fileID: 114454155860629718}
   - component: {fileID: 195611513352034782}
   - component: {fileID: 208260209859969754}
   m_Layer: 0
@@ -516,7 +515,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533321520501014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: -6}
+  m_LocalPosition: {x: 54.49, y: 0, z: -47.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4137800788124410}
@@ -702,7 +701,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114793170380320198
+--- !u!114 &114454155860629718
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -710,14 +709,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1533321520501014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99daf7289a4a5d4499cba7a4baea7215, type: 3}
+  m_Script: {fileID: 11500000, guid: 5de2f6268085f00498285fde435fc600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 76758d00c69fed840a736fad5ac6385f, type: 2}
-  charCon: {fileID: 0}
-  agent: {fileID: 0}
-  obstacle: {fileID: 0}
-  trans: {fileID: 0}
+  speed: 10
 --- !u!137 &137784340144418312
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -901,23 +896,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0017656386, y: 0.000000059604645, z: 0.03778941}
     m_Extent: {x: 0.9239062, y: 0.8639447, z: 0.19886288}
   m_DirtyAABB: 0
---- !u!143 &143362735392308490
-CharacterController:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1533321520501014}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.25
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &195611513352034782
 NavMeshAgent:
   m_ObjectHideFlags: 1

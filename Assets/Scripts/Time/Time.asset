@@ -40,9 +40,10 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
-  dayLength: 10
+  dayStart: 9
+  dayEnd: 21
+  timeAcceleration: 30
   timeBetweenUpdates: 5
   dayIndex: 0
-  currentSky: {r: 1, g: 0.96437514, b: 0.76854897, a: 1}
   currentTime: 0
   currentDay: 0

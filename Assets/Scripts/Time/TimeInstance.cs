@@ -8,11 +8,17 @@ public class TimeInstance : MonoBehaviour {
     public TimeManager manager;
 
     // Use this for initialization
-    void Start () {
-		
+    void Awake () {
+		if(TimeManager.worldTime == null){
+            TimeManager.worldTime = manager;
+        } else if(TimeManager.worldTime != manager) {
+            TimeManager.worldTime = manager;
+            Debug.LogWarning("new worldTime set");
+        }
+
+        manager.Reset();
 	}
 	
-	// Update is called once per frame
 	void Update () {
         if(Application.isPlaying)
             manager.Tick();

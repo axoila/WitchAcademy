@@ -44,11 +44,11 @@ MonoBehaviour:
     m_Settings:
       intensity: 0.5
       radius: 0.5
-      sampleCount: 16
+      sampleCount: 10
       downsampling: 0
       forceForwardCompatibility: 0
       ambientOnly: 0
-      highPrecision: 0
+      highPrecision: 1
   screenSpaceReflection:
     m_Enabled: 0
     m_Settings:

@@ -110,8 +110,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4086325160065174}
-  - component: {fileID: 114062589701496366}
-  - component: {fileID: 143082049729723222}
+  - component: {fileID: 114554340532422884}
   - component: {fileID: 195069634829329434}
   - component: {fileID: 208333207109488738}
   m_Layer: 0
@@ -702,7 +701,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114062589701496366
+--- !u!114 &114554340532422884
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -710,14 +709,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1437844763225386}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99daf7289a4a5d4499cba7a4baea7215, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e7208098213b944eb6242507daf0bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: 9f679ac1030d2e3448e528181ba68ddb, type: 2}
-  charCon: {fileID: 0}
+  speed: 10
   agent: {fileID: 0}
   obstacle: {fileID: 0}
-  trans: {fileID: 0}
 --- !u!137 &137078166447617144
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -901,23 +898,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.0017656386, y: 0.000000059604645, z: 0.03778941}
     m_Extent: {x: 0.9239062, y: 0.8639447, z: 0.19886288}
   m_DirtyAABB: 0
---- !u!143 &143082049729723222
-CharacterController:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437844763225386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.25
-  m_SlopeLimit: 45
-  m_StepOffset: 1
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &195069634829329434
 NavMeshAgent:
   m_ObjectHideFlags: 1

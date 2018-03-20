@@ -1,7 +1,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-
+namespace GOAP{
 public abstract class GoapAction : MonoBehaviour {
 
 
@@ -117,4 +117,5 @@ public abstract class GoapAction : MonoBehaviour {
 			return effects;
 		}
 	}
+}
 }

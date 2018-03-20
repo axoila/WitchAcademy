@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using GOAP;
 
 public class PickUpToolAction : GoapAction
 {
@@ -83,5 +84,3 @@ public class PickUpToolAction : GoapAction
 	}
 
 }
-
-

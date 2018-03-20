@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using GOAP;
 
 public class ForgeToolAction : GoapAction
 {

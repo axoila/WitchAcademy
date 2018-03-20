@@ -7,7 +7,7 @@ using System.Collections;
  */
 using System.Collections.Generic;
 
-
+namespace GOAP {
 /**
  * Any agent that wants to use GOAP must implement
  * this interface. It provides information to the GOAP
@@ -61,4 +61,4 @@ public interface IGoap
 	 */
 	bool moveAgent(GoapAction nextAction);
 }
-
+}

@@ -5,6 +5,7 @@ using UnityEngine;
 /**
  * Plans what actions can be completed in order to fulfill a goal state.
  */
+namespace GOAP{
 public class GoapPlanner
 {
 
@@ -198,5 +199,5 @@ public class GoapPlanner
 	}
 
 }
-
+}
 

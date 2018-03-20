@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-
+namespace GOAP{
 public sealed class GoapAgent : MonoBehaviour {
 
 	private FSM stateMachine;
@@ -227,4 +227,5 @@ public sealed class GoapAgent : MonoBehaviour {
 		String s = ""+action.GetType().Name;
 		return s;
 	}
+}
 }
