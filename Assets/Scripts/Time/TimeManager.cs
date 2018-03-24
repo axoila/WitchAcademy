@@ -1,32 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-[CreateAssetMenuAttribute]
-public class TimeManager : ScriptableObject {
+public class TimeManager : MonoBehaviour {
 
     public static TimeManager worldTime;
 
-    [Header("Constants")]
-	public Gradient ambientLight;
     [Tooltip("Start of the day in hours")]
-	public float dayStart = 9;
+    public float dayStart = 9;
     [Tooltip("End of the day in hours")]
 	public float dayEnd = 21;
     [Tooltip("How much faster than real time is the ingame time")]
     public float timeAcceleration = 30;
-	[Tooltip("the amount of time events sent per minute")]
+    [Tooltip("how much faster the game plays during speedup")]
+    public float fastForwardMultiplier = 10;
+    [Tooltip("the amount of time events sent per minute")]
 	public float timeBetweenUpdates;
 
     [Header("Variables")]
     public int dayIndex;
-    //public Color currentSky;
     public float currentTime;
     public Day currentDay;
 
-    public TimeUpdate update = new TimeUpdate();
-    public TimeUpdate startDay = new TimeUpdate();
+    public TimeUpdate update;
+    public TimeUpdate startDay;
 
     public Day day{
 		get{
@@ -47,12 +44,22 @@ public class TimeManager : ScriptableObject {
     }
 
     private float lastTimeUpdate;
+    bool fastForwarding = false;
 
-	/*void OnEnable(){
-        update.AddListener((value) => Debug.Log("update"));
-	}*/
+    // Use this for initialization
+    void Awake () {
+		if(worldTime == null){
+            worldTime = this;
+        } else if(worldTime != this) {
+            worldTime = this;
+            Debug.LogWarning("new worldTime set");
+        }
+        Debug.LogWarning("new worldTime set" + worldTime);
 
-    public void Tick(){
+        Reset();
+	}
+	
+	void Update () {
         currentTime += Time.deltaTime * timeAcceleration;
 
         if(hours >= dayEnd){
@@ -62,21 +69,14 @@ public class TimeManager : ScriptableObject {
 		if(lastTimeUpdate + timeBetweenUpdates <= currentTime){
             UpdateTime();
         }
-
-        //UpdateSky();
-    }
-
-    public void ResetLight(){
-        Shader.SetGlobalColor("_AmbientColor", Color.white);
-    }
-
-	public void StartNewDay(){
-        currentTime = 0;
-        dayIndex++;
-        lastTimeUpdate = 0;
-		update.Invoke(this, currentTime);
-        startDay.Invoke(this, 0);
-        currentDay = day;
+        
+        if(!fastForwarding){
+            if(Input.GetKey(KeyCode.LeftShift)){
+                Time.timeScale = 10;
+            } else {
+                Time.timeScale = 1;
+            }
+        }
     }
 
     public void UpdateTime(){
@@ -88,28 +88,40 @@ public class TimeManager : ScriptableObject {
         }
     }
 
+    public void StartNewDay(){
+        currentTime = 0;
+        dayIndex++;
+        lastTimeUpdate = 0;
+		update(this, currentTime);
+        startDay(this, 0);
+        currentDay = day;
+    }
+
     public void Reset(){
         currentTime = 0;
 		currentDay = 0;
 		dayIndex = 0;
     }
 
-    /*public void UpdateSky(){
-        Shader.SetGlobalColor("_AmbientColor", ambientLight.Evaluate(currentTime/dayLength));
-        currentSky = ambientLight.Evaluate(currentTime / dayLength);
-    }*/
-
     public float HourMinuteToTime(float hour, float minute = 0){
         return (hour-dayStart)*3600 + minute * 60;
     }
-}
 
-public enum Day{
-	FREE_DAY,
-	DAY1,
-	DAY2,
-	DAY3,
-	DAY4
-}
+    public IEnumerator FastForward(float minutes){
+        fastForwarding = true;
+        StopCoroutine("FastForward");
+        Time.timeScale = fastForwardMultiplier;
+        yield return new WaitForSeconds((minutes * 60) / timeAcceleration);
+        fastForwarding = false;
+    }
+    
+    public delegate void TimeUpdate(TimeManager manager, float currentTime);
 
-public class TimeUpdate : UnityEvent<TimeManager, float> {}
+    public enum Day{
+        FREE_DAY,
+        DAY1,
+        DAY2,
+        DAY3,
+        DAY4
+    }
+}

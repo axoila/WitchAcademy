@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class TimeDisplay : MonoBehaviour {
 
-	public TimeManager time;
-
 	public Text displayText;
 
 	// Use this for initialization
@@ -17,6 +15,6 @@ public class TimeDisplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(displayText)
-			displayText.text = string.Format("{0:D}:{1:D2}", (int)time.hours, (int)time.minutes);
+			displayText.text = string.Format("{0:D}:{1:D2}", (int)TimeManager.worldTime.hours, (int)TimeManager.worldTime.minutes);
 	}
 }

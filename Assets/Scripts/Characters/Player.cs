@@ -3,26 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class Player : MonoBehaviour {
-
-    public float speed = 10;
-
-    NavMeshAgent agent;
-    NavMeshObstacle obstacle;
-
-    void Awake(){
-        agent = GetComponent<NavMeshAgent>();
-        obstacle = GetComponent<NavMeshObstacle>();
-    }
-
-    void Start(){
-        agent.enabled = true;
-        obstacle.enabled = false;
-    }
+public class Player : Character {
 
     public void Update(){
         Move();
+
+        print(Time.timeScale);
     }
 
 	void Move(){
@@ -38,9 +24,6 @@ public class Player : MonoBehaviour {
 		
 		//convert from input to speed
 		velocity *= speed;
-
-        if(Input.GetKey(KeyCode.LeftShift))
-            velocity *= 10;
 
 		//move
 		agent.Move(velocity * Time.deltaTime);
