@@ -1,0 +1,26 @@
+{
+    "name": "Confession",
+    "requirement": {
+        "min": {
+            "relationship": 10
+        },
+        "max": {
+
+        },
+        "has": [
+
+        ],
+        "does not have": [
+            "Relationship"
+        ]
+    },
+    "priority":{
+        "base": 100,
+        "angry": -10,
+        "sad": -10
+    },
+    "start":"hey",
+    "data": {
+        
+    }
+}

@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 4086325160065174}
   - component: {fileID: 114554340532422884}
   - component: {fileID: 195069634829329434}
-  - component: {fileID: 208333207109488738}
   m_Layer: 0
   m_Name: Protag
   m_TagString: Untagged
@@ -712,9 +711,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e7208098213b944eb6242507daf0bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Protagonist
   speed: 10
-  agent: {fileID: 0}
-  obstacle: {fileID: 0}
 --- !u!137 &137078166447617144
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -904,7 +902,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1437844763225386}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.25
   m_Speed: 3.5
@@ -919,18 +917,3 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!208 &208333207109488738
-NavMeshObstacle:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1437844763225386}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 0.25, y: 1, z: 0.25}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 1, z: 0}
-  m_TimeToStationary: 0.5

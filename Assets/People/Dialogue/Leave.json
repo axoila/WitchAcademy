@@ -1,0 +1,12 @@
+[
+	{
+		"title": "Leave",
+		"tags": "",
+		"body": "Sorry $name, but I have a different appointment right now.\nSee you another time.",
+		"position": {
+			"x": 536,
+			"y": 227
+		},
+		"colorID": 0
+	}
+]

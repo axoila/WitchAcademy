@@ -8,7 +8,7 @@ public class Player : Character {
     public void Update(){
         Move();
 
-        print(Time.timeScale);
+        //print(Time.timeScale);
     }
 
 	void Move(){

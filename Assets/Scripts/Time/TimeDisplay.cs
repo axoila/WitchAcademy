@@ -15,6 +15,8 @@ public class TimeDisplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(displayText)
-			displayText.text = string.Format("{0:D}:{1:D2}", (int)TimeManager.worldTime.hours, (int)TimeManager.worldTime.minutes);
+			displayText.text = string.Format("{0:D}:{1:D2}", 
+					(int)TimeManager.worldTime.hours, 
+					(int)TimeManager.worldTime.minutes);
 	}
 }

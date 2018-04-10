@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Confession",
+		"tags": "",
+		"body": "Hey there, how are you?\nwe've been really close lately, and I've been thinking...\nWhat would you think about us being a item?\n[[I'd love that|Yes]]\n[[I'm sorry no|No]]",
+		"position": {
+			"x": 440,
+			"y": 138
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Yes",
+		"tags": "",
+		"body": "Oh god I knew you'd say yes!",
+		"position": {
+			"x": 297,
+			"y": 441
+		},
+		"colorID": 0
+	},
+	{
+		"title": "No",
+		"tags": "",
+		"body": "Oh... Okay.\nI'll see you in class then.",
+		"position": {
+			"x": 617,
+			"y": 431
+		},
+		"colorID": 0
+	}
+]

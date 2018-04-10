@@ -43,8 +43,10 @@ public class TimeManager : MonoBehaviour {
         }
     }
 
+    [HideInInspector]public bool paused = false;
     private float lastTimeUpdate;
     bool fastForwarding = false;
+    
 
     // Use this for initialization
     void Awake () {
@@ -54,13 +56,13 @@ public class TimeManager : MonoBehaviour {
             worldTime = this;
             Debug.LogWarning("new worldTime set");
         }
-        Debug.LogWarning("new worldTime set" + worldTime);
 
         Reset();
 	}
 	
 	void Update () {
-        currentTime += Time.deltaTime * timeAcceleration;
+        if(!fastForwarding)
+            currentTime += Time.deltaTime * timeAcceleration;
 
         if(hours >= dayEnd){
             StartNewDay();
@@ -71,11 +73,14 @@ public class TimeManager : MonoBehaviour {
         }
         
         if(!fastForwarding){
-            if(Input.GetKey(KeyCode.LeftShift)){
-                Time.timeScale = 10;
-            } else {
-                Time.timeScale = 1;
-            }
+            if(paused)
+                Time.timeScale = 0;
+            else
+                if(Input.GetKey(KeyCode.LeftShift)){
+                    Time.timeScale = 10;
+                } else {
+                    Time.timeScale = 1;
+                }
         }
     }
 
@@ -109,7 +114,8 @@ public class TimeManager : MonoBehaviour {
 
     public IEnumerator FastForward(float minutes){
         fastForwarding = true;
-        StopCoroutine("FastForward");
+        //StopCoroutine("FastForward");
+        currentTime += minutes * 60;
         Time.timeScale = fastForwardMultiplier;
         yield return new WaitForSeconds((minutes * 60) / timeAcceleration);
         fastForwarding = false;
