@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
+[Serializable]
 public class AppointmentList{
 	List<Appointment> appointments;
 	
@@ -17,7 +19,7 @@ public class AppointmentList{
 
 	public void Add(Appointment a){
 		for(int i=0;i<appointments.Count;i++){
-			if(appointments[i].time < a.time){
+			if(appointments[i].time > a.time){
 				appointments.Insert(i, a);
 				return;
 			}

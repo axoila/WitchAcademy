@@ -17,7 +17,7 @@ public class NPC : Character {
     Coroutine walkRoutine = null;
     Coroutine talkRoutine = null;
     Coroutine cancelRoutine = null;
-    AppointmentList appointments = new AppointmentList();
+    [HideInInspector] public AppointmentList appointments = new AppointmentList();
     Appointment activeAppointment;
 
     Vector3 distancePosition;
@@ -27,41 +27,46 @@ public class NPC : Character {
     void Start()
     {
         appointments.Add(
-            new Appointment(
-                TimeManager.worldTime.HourMinuteToTime(9, 10)
-                , "dance"
-                , () => PointOfInterrest.GetClosestByName("Well", transform.position)));
+                new Appointment(
+                    TimeManager.worldTime.HourMinuteToTime(9, 10), "confess",
+                    player, confession) );
 
-        appointmentRoutine = StartCoroutine(TalkTo(player, confession));
+        appointments.Add(new Appointment(
+                TimeManager.worldTime.HourMinuteToTime(9, 20), "dance"
+                , () => PointOfInterrest.GetClosestByName("Well", transform.position).transform) );
+
+        OnPositionChange += UpdateDistance;
+        if(appointments.GetNext().conversationPartner != null)
+			appointments.GetNext().conversationPartner.OnPositionChange += UpdateDistance;
+        UpdateDistance(transform.position);
     }
 
     public void Update()
     {
+        UpdateApproxPosition();
         Appointment next = appointments.GetNext();
-        //print(next.name+  " + "+next.time);
-        if(nextAppointmentWalkDuration < 0 || Vector3.Distance(transform.position, distancePosition) > 1){
-            if(updateDistanceRoutine != null)
-                StopCoroutine(updateDistanceRoutine);
-            updateDistanceRoutine = StartCoroutine(UpdateDistance());
-        }
+
+        //go to the next appointment when it's time
         if(next != null && TimeManager.worldTime.currentTime > next.time - nextAppointmentWalkDuration * TimeManager.worldTime.timeAcceleration && cancelRoutine == null){
-            //print(appointments.GetNext());
-            StartCoroutine(StartNewAppointment());
+            cancelRoutine = StartCoroutine(CancelCurrentAppointment());
+            appointmentRoutine = StartCoroutine(StartNewAppointment());
         }
+    }
+
+    public void UpdateDistance(Vector3 newPos){
+        if(updateDistanceRoutine != null)
+            StopCoroutine(updateDistanceRoutine);
+        updateDistanceRoutine = StartCoroutine(UpdateDistanceCo());
     }
 
     IEnumerator StartNewAppointment()
     {
         Appointment newAppointment = appointments.Pop();
-        cancelRoutine = StartCoroutine(CancelCurrentAppointment());
         yield return cancelRoutine;
         cancelRoutine = null;
 
         activeAppointment = newAppointment;
-        //print(activeAppointment);
-        agent.SetDestination(
-            activeAppointment.place()
-                .transform.position);
+        yield return StartCoroutine(activeAppointment.AttendAppointment(this));
     }
 
     public IEnumerator TalkTo(Character chara, Conversation dialogue)
@@ -79,6 +84,7 @@ public class NPC : Character {
 
     public IEnumerator GoTo(Transform goal)
     {
+       
         agent.SetDestination(goal.position);
         while(Vector3.Distance(transform.position, goal.position) > 1){
             if(agent.destination != goal.position)
@@ -88,9 +94,17 @@ public class NPC : Character {
         agent.SetDestination(transform.position);
     }
 
+    public IEnumerator GoTo(Vector3 goal)
+    {
+        agent.SetDestination(goal);
+        yield return new WaitUntil(() => Vector3.Distance(transform.position, goal) < 1);
+        agent.SetDestination(transform.position);
+    }
+
     IEnumerator CancelCurrentAppointment()
     {
-        StopCoroutine(appointmentRoutine);
+        if(appointmentRoutine != null)
+            StopCoroutine(appointmentRoutine);
         if(walkRoutine != null){
             StopCoroutine(walkRoutine);
         }
@@ -103,13 +117,13 @@ public class NPC : Character {
         activeAppointment = null;
     }
 
-    IEnumerator UpdateDistance(){
+    IEnumerator UpdateDistanceCo(){
         distancePosition = transform.position;
         NavMeshPath path = new NavMeshPath();
         Appointment next = appointments.GetNext();
         if(next == null)
             yield break;
-        agent.CalculatePath(next.place().transform.position, path);
+        agent.CalculatePath(next.place().position, path);
         while(path.status == NavMeshPathStatus.PathPartial)
             yield return null;
 

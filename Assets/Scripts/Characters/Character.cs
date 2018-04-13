@@ -10,9 +10,12 @@ public class Character : MonoBehaviour {
 
     new public string name;
 	public float speed = 10;
+    public PositionChange OnPositionChange;
 
-	protected NavMeshAgent agent;
+	[HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public CharacterBlackboards blackboards;
+
+    private Vector3 approximatePosition;
 
 	void Awake(){
         blackboards = GetComponent<CharacterBlackboards>();
@@ -24,4 +27,19 @@ public class Character : MonoBehaviour {
         agent.angularSpeed = 360;
         agent.stoppingDistance = 1;
     }
+
+    //returns true when a new approx pos was set
+    public bool UpdateApproxPosition(){
+        if(transform.position == approximatePosition)
+            return false;
+        if(Vector3.Distance(transform.position, approximatePosition) > 0.5f){
+            approximatePosition = transform.position;
+            if(OnPositionChange != null)
+                OnPositionChange(approximatePosition);
+            return true;
+        }
+        return false;
+    }
+
+    public delegate void PositionChange(Vector3 newPosition);
 }

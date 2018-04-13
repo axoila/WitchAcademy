@@ -1,66 +1,41 @@
 fileFormatVersion: 2
-guid: 7091a35e15251e14d8ffbdb88aab672a
-timeCreated: 1511642158
+guid: 7c78ab58afd1ffb4a9d7a2b5bbc4058a
+timeCreated: 1523535225
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Empty
-    100002: //RootNode
-    100004: Grass
-    100006: Water
-    100008: Well
-    100010: WellCollision
-    100012: Empty_001
-    100014: Walkways
-    400000: Empty
-    400002: //RootNode
-    400004: Grass
-    400006: Water
-    400008: Well
-    400010: WellCollision
-    400012: Empty_001
-    400014: Walkways
-    2300000: Grass
-    2300002: Water
-    2300004: Well
-    2300006: WellCollision
-    2300008: //RootNode
-    2300010: Walkways
-    3300000: Grass
-    3300002: Water
-    3300004: Well
-    3300006: WellCollision
-    3300008: //RootNode
-    3300010: Walkways
-    4300000: Well
-    4300002: Water
-    4300004: Grass
-    4300006: WellCollision
-    4300008: Walkways
+    100000: Icosphere
+    100002: Icosphere_001
+    100004: Icosphere_002
+    100006: //RootNode
+    100008: Icosphere_003
+    400000: Icosphere
+    400002: Icosphere_001
+    400004: Icosphere_002
+    400006: //RootNode
+    400008: Icosphere_003
+    2100000: Material_001__Palette_png
+    2300000: Icosphere
+    2300002: Icosphere_001
+    2300004: Icosphere_002
+    2300006: Icosphere_003
+    3300000: Icosphere
+    3300002: Icosphere_001
+    3300004: Icosphere_002
+    3300006: Icosphere_003
+    4300000: Icosphere_002
+    4300002: Icosphere
+    4300004: Icosphere_001
+    4300006: Icosphere_003
     7400000: Default Take
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_002__Palette_png_002
-    second: {fileID: 2100000, guid: 6122851971a37814498985a3a327e2b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material__Palette_png
-    second: {fileID: 2100000, guid: 6122851971a37814498985a3a327e2b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material__Palette_png_001
-    second: {fileID: 2100000, guid: 6122851971a37814498985a3a327e2b9, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -107,7 +82,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

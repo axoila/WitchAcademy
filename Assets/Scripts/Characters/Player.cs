@@ -7,7 +7,7 @@ public class Player : Character {
 
     public void Update(){
         Move();
-
+        UpdateApproxPosition();
         //print(Time.timeScale);
     }
 

@@ -1,66 +1,41 @@
 fileFormatVersion: 2
-guid: 7091a35e15251e14d8ffbdb88aab672a
-timeCreated: 1511642158
+guid: d81093f435c96f84d9e1e7d109b23430
+timeCreated: 1523546565
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: Empty
     100002: //RootNode
-    100004: Grass
-    100006: Water
-    100008: Well
-    100010: WellCollision
-    100012: Empty_001
-    100014: Walkways
+    100004: Well
+    100006: WellCollision
+    100008: Empty_001
+    100010: Water
     400000: Empty
     400002: //RootNode
-    400004: Grass
-    400006: Water
-    400008: Well
-    400010: WellCollision
-    400012: Empty_001
-    400014: Walkways
-    2300000: Grass
-    2300002: Water
-    2300004: Well
-    2300006: WellCollision
-    2300008: //RootNode
-    2300010: Walkways
-    3300000: Grass
-    3300002: Water
-    3300004: Well
-    3300006: WellCollision
-    3300008: //RootNode
-    3300010: Walkways
+    400004: Well
+    400006: WellCollision
+    400008: Empty_001
+    400010: Water
+    2100000: Material_001__Palette_png
+    2100002: Material_002__Palette_png_001
+    2300000: Well
+    2300002: WellCollision
+    2300004: Water
+    3300000: Well
+    3300002: WellCollision
+    3300004: Water
     4300000: Well
-    4300002: Water
-    4300004: Grass
-    4300006: WellCollision
-    4300008: Walkways
+    4300002: WellCollision
+    4300004: Water
     7400000: Default Take
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material_002__Palette_png_002
-    second: {fileID: 2100000, guid: 6122851971a37814498985a3a327e2b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material__Palette_png
-    second: {fileID: 2100000, guid: 6122851971a37814498985a3a327e2b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material__Palette_png_001
-    second: {fileID: 2100000, guid: 6122851971a37814498985a3a327e2b9, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
